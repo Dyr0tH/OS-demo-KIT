@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linux Command Executor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e1e;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 600px;
+    }
+    h1 {
+      text-align: center;
+      color: #fff;
+    }
+    label {
+      margin-bottom: 8px;
+      display: block;
+      color: #ddd;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      border: none;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .output {
+      background-color: #1d1f23;
+      color: #ccc;
+      min-height: 100px;
+      padding: 10px;
+      border-radius: 5px;
+      font-family: monospace;
+      white-space: pre-wrap; /* Allow formatting in output */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Linux Command Executor</h1>
+    <form id="command-form">
+      <label for="command">Enter Linux Command:</label>
+      <input type="text" id="command" name="command" placeholder="e.g., ls, pwd, whoami" required>
+      
+      <button type="submit">Execute Command</button>
+    </form>
+
+    <div class="output">
+      <h2>Output:</h2>
+      <pre id="output-field">No output yet...</pre>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('command-form');
+    const outputField = document.getElementById('output-field');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const command = document.getElementById('command').value;
+
+      if (!command.trim()) {
+        outputField.textContent = 'Please enter a valid command.';
+        return;
+      }
+
+      try {
+        const response = await fetch('http://127.0.0.1:5000/run-command', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ command })
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          // Display the command output
+          outputField.textContent = data.output || 'No output returned.';
+        } else {
+          // Display any error message from the backend
+          outputField.textContent = `Error: ${data.error || 'Unknown error'}`;
+        }
+      } catch (error) {
+        outputField.textContent = `Request failed: ${error}`;
+      }
+    });
+  </script>
+</body>
+</html>
