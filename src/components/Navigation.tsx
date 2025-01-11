@@ -31,6 +31,7 @@ export default function Navigation() {
               <a href="/page-replacement" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Page Replacement</a>
               <a href="/compiler" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Compiler</a>
               <a href="/documentation" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Documentation</a>
+              <a href="https://github.com/Dyr0tH/OS-demo-KIT" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Github Repository</a>
               <a href="/about" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About Developer</a>
             </div>
           </div>
@@ -46,6 +47,7 @@ export default function Navigation() {
             <a href="/page-replacement" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Page Replacement</a>
             <a href="/compiler" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Compiler</a>
             <a href="/documentation" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Documentation</a>
+            <a href="https://github.com/Dyr0tH/OS-demo-KIT" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Github Repository</a>
             <a href="/about" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About Developer</a>
           </div>
         </div>

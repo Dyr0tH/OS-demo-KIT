@@ -32,12 +32,17 @@ export default function AboutPage() {
     {
       title: "News Prism",
       description: "A global news platform facilitating worldwide information sharing and community discussions.",
-      tech: ["React", "Node.js", "MongoDB"]
+      tech: ["React", "Node.js", "MySQL", "Docker", "Python"]
     },
     {
       title: "MailBot",
       description: "Python-based email automation using Gmail API for efficient bulk communication.",
       tech: ["Python", "Gmail API", "OAuth"]
+    },
+    {
+      title: "Os Demo Kit",
+      description: "Website showcasing the algorithms used in an Operating System and visualization of their workings.",
+      tech: ["Next.js", "Node.js", "Docker", "Python"]
     }
   ];
 
@@ -86,7 +91,7 @@ export default function AboutPage() {
         {/* Projects Section */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-center mb-8">Featured Projects</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {projects.map((project, index) => (
               <div key={index} className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6">
                 <h3 className="text-2xl font-semibold mb-3">{project.title}</h3>
