@@ -36,6 +36,8 @@ An interactive learning platform for understanding operating system concepts, al
 - Vite
 - React Router DOM
 - Lucide Icons
+- Docker
+- Python 3
 
 ## 🚀 Getting Started
 
@@ -49,7 +51,7 @@ An interactive learning platform for understanding operating system concepts, al
 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/os-demo-kit.git
+git clone https://github.com/Dyr0tH/OS-demo-KIT.git
 cd os-demo-kit
 ```
 
@@ -87,18 +89,12 @@ npm run preview
 
 The Linux terminal feature requires a backend server running on port 5000.
 
-1. Set up the server (backend code repository required)
+1. Set up the server (requires docker)
 
 ```bash
-# Clone the backend repository
-git clone https://github.com/yourusername/os-demo-kit-backend.git
-cd os-demo-kit-backend
+docker build -t linux-command-executor .
 
-# Install dependencies
-npm install
-
-# Start the server
-npm start
+docker run -d -p 5000:5000 --name linux-command-executor linux-command-executor
 ```
 
 The API server will run on `http://localhost:5000`
@@ -131,9 +127,8 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Shahid Ali**
 
-- Portfolio: [Your Portfolio](https://your-portfolio.com)
-- GitHub: [@yourusername](https://github.com/yourusername)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourusername)
+- GitHub: [@Dyr0tH](https://github.com/Dyr0tH)
+- Email: shahid.ali.2004.12@gmail.com
 
 ## 🌟 Acknowledgments
 
