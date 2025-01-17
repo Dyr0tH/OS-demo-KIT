@@ -29,6 +29,7 @@ export default function Navigation() {
               <a href="/" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
               <a href="/scheduling" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Scheduling</a>
               <a href="/page-replacement" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Page Replacement</a>
+              <a href="/deadlock" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Deadlock</a>
               <a href="/compiler" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Compiler</a>
               <a href="/documentation" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Documentation</a>
               <a href="https://github.com/Dyr0tH/OS-demo-KIT" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Github Repository</a>
@@ -45,6 +46,7 @@ export default function Navigation() {
             <a href="/" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
             <a href="/scheduling" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Scheduling</a>
             <a href="/page-replacement" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Page Replacement</a>
+            <a href="/deadlock" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Deadlock</a>
             <a href="/compiler" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Compiler</a>
             <a href="/documentation" className="text-gray-300 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Documentation</a>
             <a href="https://github.com/Dyr0tH/OS-demo-KIT" className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Github Repository</a>

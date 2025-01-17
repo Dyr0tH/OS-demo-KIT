@@ -1,10 +1,11 @@
-import { Terminal, Cpu, HardDrive, Book } from 'lucide-react';
+import { Terminal, Cpu, HardDrive, Book, Lock } from 'lucide-react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SchedulingPage from './components/SchedulingPage';
 import PageReplacementPage from './components/PageReplacementPage';
 import CompilerPage from './components/CompilerPage';
 import DocumentationPage from './components/DocumentationPage';
 import AboutPage from './components/AboutPage';
+import DeadlockPage from './components/DeadlockPage';
 import Navigation from './components/Navigation';
 
 function HomePage() {
@@ -12,22 +13,32 @@ function HomePage() {
     {
       title: "Scheduling Algorithms",
       icon: <Cpu className="w-6 h-6" />,
-      description: "Interactive simulations of FCFS, SJF, Round Robin, and Priority Scheduling algorithms."
+      description: "Interactive simulations of FCFS, SJF, Round Robin, and Priority Scheduling algorithms.",
+      delay: "0s"
     },
     {
       title: "Linux Compiler",
       icon: <Terminal className="w-6 h-6" />,
-      description: "Real-time code execution environment with Linux command tutorials."
+      description: "Real-time code execution environment with Linux command tutorials.",
+      delay: "0.1s"
     },
     {
       title: "Page Replacement",
       icon: <HardDrive className="w-6 h-6" />,
-      description: "Simulations for FIFO, LRU, and Optimal Replacement algorithms."
+      description: "Simulations for FIFO, LRU, and Optimal Replacement algorithms.",
+      delay: "0.2s"
+    },
+    {
+      title: "Deadlock Avoidance",
+      icon: <Lock className="w-6 h-6" />,
+      description: "Interactive Banker's Algorithm and Resource Allocation Graph simulations.",
+      delay: "0.3s"
     },
     {
       title: "Documentation",
       icon: <Book className="w-6 h-6" />,
-      description: "Comprehensive guide to operating system concepts and features."
+      description: "Comprehensive guide to operating system concepts and features.",
+      delay: "0.4s"
     }
   ];
 
@@ -59,9 +70,47 @@ function HomePage() {
 
       {/* Features Grid */}
       <div id="features" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <style>
+          {`
+            @keyframes float {
+              0% {
+                transform: translateY(0px) rotate(0deg);
+              }
+              25% {
+                transform: translateY(-10px) rotate(1deg);
+              }
+              50% {
+                transform: translateY(0px) rotate(0deg);
+              }
+              75% {
+                transform: translateY(10px) rotate(-1deg);
+              }
+              100% {
+                transform: translateY(0px) rotate(0deg);
+              }
+            }
+
+            .feature-card {
+              animation: float 6s ease-in-out infinite;
+              transition: all 0.3s ease;
+            }
+
+            .feature-card:hover {
+              transform: scale(1.05) translateY(-10px);
+              box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            }
+          `}
+        </style>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 relative">
           {features.map((feature, index) => (
-            <div key={index} className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6 transform hover:scale-105 transition-transform duration-200">
+            <div
+              key={index}
+              className="feature-card bg-gray-800/50 backdrop-blur-sm rounded-lg p-6 hover:bg-gray-700/50"
+              style={{
+                animationDelay: feature.delay,
+                boxShadow: '0 10px 30px -15px rgba(0, 0, 0, 0.3)',
+              }}
+            >
               <div className="text-blue-500 mb-4">
                 {feature.icon}
               </div>
@@ -85,6 +134,7 @@ function App() {
         <Route path="/compiler" element={<CompilerPage />} />
         <Route path="/documentation" element={<DocumentationPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/deadlock" element={<DeadlockPage />} />
       </Routes>
     </Router>
   );

@@ -1,4 +1,3 @@
-import React from 'react';
 import myImage from '../assets/shahid.jpg';
 import { Code, Palette, Box, Brain, Mail, Github, Linkedin } from 'lucide-react';
 import Navigation from './Navigation';
